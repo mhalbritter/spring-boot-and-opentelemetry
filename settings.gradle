@@ -1,3 +1,4 @@
 include "user-service"
 include "greeting-service"
 include "hello-service"
+include "shared"
