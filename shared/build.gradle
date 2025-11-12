@@ -20,7 +20,7 @@ dependencies {
     implementation(platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}"))
 
     implementation('ch.qos.logback:logback-core')
-    implementation('io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0:2.21.0-alpha')
+    implementation "io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0:${opentelemetryLogbackAppenderVersion}"
     implementation('io.opentelemetry:opentelemetry-api')
     implementation('io.micrometer:micrometer-tracing')
     implementation('jakarta.servlet:jakarta.servlet-api')
