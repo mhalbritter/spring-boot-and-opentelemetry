@@ -1,6 +1,6 @@
 package com.example.greeting;
 
-import io.micrometer.tracing.annotation.NewSpan;
+import io.micrometer.observation.annotation.Observed;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ class Delay {
         this.properties = properties;
     }
 
-    @NewSpan
+    @Observed
     public void delay() {
         try {
             Thread.sleep(this.properties.getDelay());

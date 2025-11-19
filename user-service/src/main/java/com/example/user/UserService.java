@@ -23,7 +23,6 @@ public class UserService {
     }
 
     @Observed(name = "user.create")
-    @NewSpan
     @Transactional
     public User create(String name) {
         LOGGER.info("Creating user '{}'", name);
@@ -31,7 +30,6 @@ public class UserService {
     }
 
     @Observed(name = "user.list-all")
-    @NewSpan
     @Transactional(readOnly = true)
     public List<User> listAll() {
         LOGGER.info("Listing all users");
