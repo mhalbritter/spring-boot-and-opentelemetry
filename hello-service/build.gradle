@@ -24,7 +24,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webmvc'
     implementation 'org.springframework.boot:spring-boot-starter-restclient'
     implementation 'org.springframework.boot:spring-boot-starter-micrometer-metrics'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     implementation project(':shared')
     implementation "io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0:${opentelemetryLogbackAppenderVersion}"
@@ -35,7 +34,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-restclient-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-aspectj-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-micrometer-metrics-test'
-    testImplementation 'org.springframework.boot:spring-boot-starter-actuator-test'
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
