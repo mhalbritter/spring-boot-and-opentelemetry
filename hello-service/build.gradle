@@ -15,6 +15,12 @@ java {
 }
 
 repositories {
+    if (providers.gradleProperty('useMavenLocalRepo').map { it.toBoolean() }.getOrElse(false)) {
+        mavenLocal()
+    }
+    if (providers.gradleProperty('useSpringSnapshotsRepo').map { it.toBoolean() }.getOrElse(false)) {
+        maven { url = 'https://repo.spring.io/snapshot' }
+    }
     mavenCentral()
 }
 
