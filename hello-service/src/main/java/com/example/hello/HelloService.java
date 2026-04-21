@@ -43,6 +43,12 @@ class HelloService {
         return greeting + " " + user.name();
     }
 
+    @Observed(name = "boom")
+    public void boom() {
+        LOGGER.error("Boom");
+        throw new RuntimeException("Boom");
+    }
+
     private String sayHelloAsync(Locale locale, long userId) {
         Future<String> greeting = this.greetingServiceClient.greetingAsync(locale);
         Future<User> user = this.userServiceClient.findAsync(userId);
@@ -57,5 +63,4 @@ class HelloService {
             throw new RuntimeException("Fetching greeting or user failed", ex);
         }
     }
-
 }

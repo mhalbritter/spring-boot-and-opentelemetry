@@ -29,4 +29,9 @@ class HelloController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/boom")
+    void boom() {
+        this.helloService.boom();
+    }
 }

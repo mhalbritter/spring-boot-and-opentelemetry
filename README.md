@@ -15,29 +15,35 @@ Start all three services: user-service, greeting-service and hello-service.
 ## Call hello-service
 
 ```shell
-curl localhost:8080/api/1
+curl -i localhost:8080/api/1
 ```
 
 You can request different users:
 
 ```shell
-curl localhost:8080/api/2
+curl -i localhost:8080/api/2
 ```
 
 or
 
 ```shell
-curl localhost:8080/api/3
+curl -i localhost:8080/api/3
 ```
 
 
 You can also request the greeting in different languages:
 
 ```shell
-curl -H "Accept-Language: de" localhost:8080/api/1
+curl -i -H "Accept-Language: de" localhost:8080/api/1
 ```
 
 It knows about English, German and Spanish.
+
+If you want to see a trace with an error in it, use this:
+
+```shell
+curl -i localhost:8080/api/boom
+```
 
 ## Observability signals
 
