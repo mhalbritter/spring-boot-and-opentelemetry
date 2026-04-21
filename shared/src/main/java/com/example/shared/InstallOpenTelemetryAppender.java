@@ -5,6 +5,9 @@ import io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppen
 
 import org.springframework.beans.factory.InitializingBean;
 
+/**
+ * An {@link InitializingBean} (it gets called by Spring when the app starts) to register the {@link OpenTelemetry} instance onto the Logback {@link OpenTelemetryAppender}.
+ */
 class InstallOpenTelemetryAppender implements InitializingBean {
 
     private final OpenTelemetry openTelemetry;

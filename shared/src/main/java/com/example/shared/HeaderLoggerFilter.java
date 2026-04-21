@@ -13,6 +13,9 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.web.filter.OncePerRequestFilter;
 
+/**
+ * Logs the headers of the incoming requests to debug level.
+ */
 class HeaderLoggerFilter extends OncePerRequestFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(HeaderLoggerFilter.class);
 

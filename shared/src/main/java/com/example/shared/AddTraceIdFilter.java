@@ -12,6 +12,9 @@ import org.jspecify.annotations.Nullable;
 
 import org.springframework.web.filter.OncePerRequestFilter;
 
+/**
+ * Adds a {@code X-Trace-Id} header containing the current trace id to the response.
+ */
 class AddTraceIdFilter extends OncePerRequestFilter {
     private final Tracer tracer;
 
