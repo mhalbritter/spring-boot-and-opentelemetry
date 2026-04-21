@@ -24,16 +24,16 @@ public class UserServiceClient {
     }
 
     public User find(long id) {
-        LOGGER.debug("Fetching user with id {}", id);
         return findImpl(id);
     }
 
     public Future<User> findAsync(long id) {
-        LOGGER.debug("Fetching user async with id {}", id);
+        LOGGER.debug("Submitting async task");
         return this.asyncTaskExecutor.submit(() -> findImpl(id));
     }
 
     private User findImpl(long id) {
+        LOGGER.debug("Fetching user with id {}", id);
         try {
             return this.httpClient.find(id);
         } catch (HttpClientErrorException.NotFound ex) {

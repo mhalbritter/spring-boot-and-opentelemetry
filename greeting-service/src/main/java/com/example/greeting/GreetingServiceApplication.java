@@ -1,6 +1,5 @@
 package com.example.greeting;
 
-import com.example.shared.ContextPropagationConfiguration;
 import com.example.shared.FilterConfiguration;
 import com.example.shared.OpenTelemetryConfiguration;
 
@@ -9,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@Import({OpenTelemetryConfiguration.class, ContextPropagationConfiguration.class, FilterConfiguration.class})
+@Import({OpenTelemetryConfiguration.class, FilterConfiguration.class})
 public class GreetingServiceApplication {
 
     public static void main(String[] args) {

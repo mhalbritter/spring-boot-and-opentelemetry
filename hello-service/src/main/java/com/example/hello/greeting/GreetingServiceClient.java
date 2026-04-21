@@ -24,16 +24,16 @@ public class GreetingServiceClient {
     }
 
     public String greeting(Locale locale) {
-        LOGGER.debug("Fetching greeting for locale {}", locale);
         return greetingImpl(locale);
     }
 
     public Future<String> greetingAsync(Locale locale) {
-        LOGGER.debug("Fetching greeting async for locale {}", locale);
+        LOGGER.debug("Submitting async task");
         return this.asyncTaskExecutor.submit(() -> greetingImpl(locale));
     }
 
     private String greetingImpl(Locale locale) {
+        LOGGER.debug("Fetching greeting for locale {}", locale);
         return this.httpClient.greeting(locale.toLanguageTag());
     }
 }
