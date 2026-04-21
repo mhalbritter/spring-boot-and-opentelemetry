@@ -9,7 +9,6 @@ import com.example.hello.user.User;
 import com.example.hello.user.UserServiceClient;
 import io.micrometer.observation.annotation.ObservationKeyValue;
 import io.micrometer.observation.annotation.Observed;
-import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

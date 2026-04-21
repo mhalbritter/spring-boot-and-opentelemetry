@@ -14,12 +14,12 @@ import org.springframework.stereotype.Component;
 public class GreetingServiceClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(GreetingServiceClient.class);
 
-    private final GreetingServiceHttpClient httpClient;
+    private final HttpFacade httpFacade;
 
     private final AsyncTaskExecutor asyncTaskExecutor;
 
-    GreetingServiceClient(GreetingServiceHttpClient httpClient, @Qualifier("applicationTaskExecutor") AsyncTaskExecutor asyncTaskExecutor) {
-        this.httpClient = httpClient;
+    GreetingServiceClient(HttpFacade httpFacade, @Qualifier("applicationTaskExecutor") AsyncTaskExecutor asyncTaskExecutor) {
+        this.httpFacade = httpFacade;
         this.asyncTaskExecutor = asyncTaskExecutor;
     }
 
@@ -34,6 +34,6 @@ public class GreetingServiceClient {
 
     private String greetingImpl(Locale locale) {
         LOGGER.debug("Fetching greeting for locale {}", locale);
-        return this.httpClient.greeting(locale.toLanguageTag());
+        return this.httpFacade.greeting(locale);
     }
 }
