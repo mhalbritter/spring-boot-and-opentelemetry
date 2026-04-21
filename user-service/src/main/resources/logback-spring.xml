@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  This configuration outputs logs to the console and also sends them to OpenTelemetry.
+  See com.example.shared.InstallOpenTelemetryAppender for the code parts.
+-->
 <configuration>
 
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
