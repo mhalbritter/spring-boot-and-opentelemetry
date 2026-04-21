@@ -9,6 +9,7 @@ import com.example.hello.user.User;
 import com.example.hello.user.UserServiceClient;
 import io.micrometer.observation.annotation.ObservationKeyValue;
 import io.micrometer.observation.annotation.Observed;
+import org.jspecify.annotations.NonNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,9 +39,7 @@ class HelloService {
         if (this.properties.isAsync()) {
             return sayHelloAsync(locale, userId);
         }
-        String greeting = this.greetingServiceClient.greeting(locale);
-        User user = this.userServiceClient.find(userId);
-        return greeting + " " + user.name();
+        return sayHelloSync(locale, userId);
     }
 
     @Observed(name = "boom")
@@ -62,5 +61,11 @@ class HelloService {
             }
             throw new RuntimeException("Fetching greeting or user failed", ex);
         }
+    }
+
+    private String sayHelloSync(Locale locale, long userId) {
+        String greeting = this.greetingServiceClient.greeting(locale);
+        User user = this.userServiceClient.find(userId);
+        return greeting + " " + user.name();
     }
 }

@@ -17,6 +17,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * This component is instrumented using the OpenTelemetry API, not Micrometer.
+ * Set the property {@code hello.open-telemetry-api-usage} to {@code true} to use it.
+ * It will run every 10 seconds, increment a counter and creates a new span. Randomly
+ * the span will be an error.
  */
 @Component
 @ConditionalOnBooleanProperty("hello.open-telemetry-api-usage")
@@ -62,7 +65,7 @@ class SomeOpenTelemetryApiInstrumentedComponent {
 
     /**
      * If this is called from e.g. HelloService, it also contributes to the current running span started by
-     * Micrometer Tracing.
+     * Micrometer Tracing. This demonstrates that Micrometer's context is seamlessly propagated to OpenTelemetry.
      */
     public void doSomething() {
         Span span = this.tracer.spanBuilder("do-something").startSpan();
