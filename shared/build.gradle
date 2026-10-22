@@ -23,10 +23,10 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}"))
+    implementation(platform(libs.spring.boot.dependencies))
 
     implementation('ch.qos.logback:logback-core')
-    implementation "io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0:${opentelemetryLogbackAppenderVersion}"
+    implementation libs.opentelemetry.logback.appender
     implementation('io.opentelemetry:opentelemetry-api')
     implementation('io.micrometer:micrometer-tracing')
     implementation('jakarta.servlet:jakarta.servlet-api')

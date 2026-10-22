@@ -1,0 +1,12 @@
+[versions]
+spring-boot = "4.2.0-M2"
+spring-dependency-management = "1.1.7"
+opentelemetry-logback-appender = "2.31.1-alpha"
+
+[libraries]
+opentelemetry-logback-appender = { module = "io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0", version.ref = "opentelemetry-logback-appender" }
+spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }

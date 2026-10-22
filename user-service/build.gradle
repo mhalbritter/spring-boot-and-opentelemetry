@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version "${springBootVersion}"
-    id 'io.spring.dependency-management' version '1.1.7'
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
 }
 
 group = 'com.example'
@@ -33,7 +33,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-micrometer-metrics'
 
     implementation project(':shared')
-    implementation "io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0:${opentelemetryLogbackAppenderVersion}"
+    implementation libs.opentelemetry.logback.appender
 
     runtimeOnly 'com.h2database:h2'
 
