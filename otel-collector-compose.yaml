@@ -5,4 +5,5 @@ services:
             - './otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml:ro'
             #- './otel-collector-output:/output:rw'
         ports:
+            - '4317:4317'
             - '4318:4318'
