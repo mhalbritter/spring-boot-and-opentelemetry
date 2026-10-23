@@ -18,8 +18,10 @@ repositories {
     if (providers.gradleProperty('useMavenLocalRepo').map { it.toBoolean() }.getOrElse(false)) {
         mavenLocal()
     }
-    if (providers.gradleProperty('useSpringSnapshotsRepo').map { it.toBoolean() }.getOrElse(false)) {
-        maven { url = 'https://repo.spring.io/snapshot' }
+    // Only consulted for snapshot versions, e.g. 4.2.0-SNAPSHOT
+    maven {
+        url = 'https://repo.spring.io/snapshot'
+        mavenContent { snapshotsOnly() }
     }
     mavenCentral()
 }
@@ -31,6 +33,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-micrometer-metrics'
 
     implementation project(':shared')
+    // Align alpha OpenTelemetry artifacts with the API version, see libs.versions.toml
+    implementation platform(libs.opentelemetry.bom.alpha)
     implementation libs.opentelemetry.logback.appender
 
     testImplementation 'org.springframework.boot:spring-boot-starter-opentelemetry-test'

@@ -1,10 +1,15 @@
 [versions]
-spring-boot = "4.2.0-M2"
+spring-boot = "4.2.0-RC1"
 spring-dependency-management = "1.1.7"
 opentelemetry-logback-appender = "2.31.1-alpha"
+# Must match the opentelemetry-api version managed by Spring Boot.
+# Boot doesn't manage the alpha BOM, so opentelemetry-api-incubator would otherwise come
+# from the logback appender (1.65.0-alpha) and fail against API 1.67.0 (NoClassDefFoundError: ConfigUtil).
+opentelemetry-alpha = "1.67.0-alpha"
 
 [libraries]
 opentelemetry-logback-appender = { module = "io.opentelemetry.instrumentation:opentelemetry-logback-appender-1.0", version.ref = "opentelemetry-logback-appender" }
+opentelemetry-bom-alpha = { module = "io.opentelemetry:opentelemetry-bom-alpha", version.ref = "opentelemetry-alpha" }
 spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "spring-boot" }
 
 [plugins]
